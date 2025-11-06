@@ -1,3 +1,4 @@
+//TODO: Add description about the describe/testcases
 describe("User should be able to login/logout", () => {
   beforeEach("Navigating to the url", () => {
     cy.visit("/login");
@@ -15,12 +16,18 @@ describe("User should be able to login/logout", () => {
     cy.get('[data-qa="login-email"]').type("jonas@doof.com");
     cy.get('[data-qa="login-password"]').type("jonasistcool787");
     cy.get('[data-qa="login-button"').click();
+
+    /**
+     * TODO: This is duplicate. You can do something like
+     * cy.contains("Your email or password is incorrect!")
+     */
     cy.contains("Your email or password is incorrect!").should(
       "contain",
       "Your email or password is incorrect!"
     );
   });
 });
+//TODO: Add description about the describe/testcases
 describe("Logout", () => {
   before("Login", () => {
     cy.visit("/login");
